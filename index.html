@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: "Inter", system-ui, sans-serif; }
-    a { text-decoration: underline; }
-    a:hover { text-decoration: none; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      /* Increase base font-size by 2px over browser default */
+      font-size: 18px;
+    }
+    /* Display font for name */
+    .font-display {
+      font-family: "Bebas Neue", cursive;
+    }
   </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-  <!-- Top Navigation -->
-  <header class="sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b">
-    <nav class="max-w-3xl mx-auto px-4 flex justify-center space-x-6 py-3 text-sm font-medium">
+  <!-- Mobile top navigation -->
+  <header class="lg:hidden sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b">
+    <nav class="max-w-3xl mx-auto px-4 flex justify-center space-x-6 py-3 text-base font-medium">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
@@ -24,56 +30,80 @@
     </nav>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-12 prose prose-neutral dark:prose-invert prose-h1:text-4xl prose-h1:font-bold prose-h2:text-2xl prose-h3:text-xl prose-a:no-underline">
-    <!-- Hero / Header -->
-    <h1>Your Name</h1>
-    <p class="not-prose text-sm text-gray-600 dark:text-gray-400">123 Main St · Vancouver, BC · <a href="mailto:you@example.com">you@example.com</a></p>
+  <div class="max-w-6xl mx-auto lg:flex py-12 px-4">
+    <!-- Sidebar for desktop -->
+    <aside class="hidden lg:block w-64 flex-shrink-0 pr-12">
+      <div class="sticky top-24 flex flex-col items-center space-y-8">
+        <img src="https://placehold.co/200x200" alt="Your photo" class="rounded-full shadow-lg w-40 h-40" />
+        <nav class="flex flex-col space-y-4 text-lg font-semibold">
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#projects" class="hover:underline">Projects</a>
+          <a href="#publications" class="hover:underline">Publications</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </nav>
+      </div>
+    </aside>
 
-    <p>I am a <strong>design‑minded developer</strong> focused on building thoughtful user experiences. My interests span web accessibility, creative coding, and research-driven design.</p>
+    <!-- Main content -->
+    <main class="flex-1 prose prose-lg dark:prose-invert space-y-40">
+      <!-- Hero / Header -->
+      <section id="hero">
+        <h1 class="font-display text-7xl font-extrabold tracking-wide">Your Name</h1>
+        <p class="not-prose text-lg text-gray-600 dark:text-gray-400 mt-2">
+          123 Main St · Vancouver, BC · <a href="mailto:you@example.com">you@example.com</a>
+        </p>
+        <p>
+          I am a <strong>design‑minded developer</strong> focused on building thoughtful user experiences. My interests span web accessibility, creative coding, and research‑driven design.
+        </p>
+      </section>
 
-    <hr />
+      <!-- About -->
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I enjoy translating complex problems into elegant, human‑centered solutions. Over the last five years I've worked across the stack, from information architecture to production deployment.
+        </p>
+      </section>
 
-    <!-- About Section -->
-    <h2 id="about">About</h2>
-    <p>I enjoy translating complex problems into elegant, human‑centered solutions. Over the last five years I've worked across the stack, from information architecture to production deployment.</p>
+      <!-- Projects -->
+      <section id="projects">
+        <h2>Projects</h2>
 
-    <hr />
+        <h3><a href="https://github.com/your-handle/project-one">Project One</a></h3>
+        <p class="not-prose text-sm text-gray-500">2025 · React, Node, Postgres</p>
+        <p>Brief description highlighting the problem, your approach, and the impact.</p>
+        <details>
+          <summary class="cursor-pointer">Show/hide details</summary>
+          <p>Extended write‑up explaining the challenge, design considerations, and technical implementation.</p>
+        </details>
 
-    <!-- Projects Section -->
-    <h2 id="projects">Projects</h2>
+        <h3><a href="https://github.com/your-handle/project-two">Project Two</a></h3>
+        <p class="not-prose text-sm text-gray-500">2024 · Next.js, Typescript</p>
+        <p>Concise overview of what makes this project noteworthy.</p>
+      </section>
 
-    <h3><a href="https://github.com/your-handle/project-one">Project One</a></h3>
-    <p class="not-prose text-sm text-gray-500">2025 · React, Node, Postgres</p>
-    <p>Brief description highlighting the problem, your approach, and the impact.</p>
-    <details>
-      <summary class="cursor-pointer">Show/hide details</summary>
-      <p>Extended write‑up explaining the challenge, design considerations, and technical implementation.</p>
-    </details>
+      <!-- Publications -->
+      <section id="publications">
+        <h2>Publications</h2>
+        <h3><a href="#">Title of Article or Paper</a></h3>
+        <p class="not-prose text-sm text-gray-500">Conference / Journal · 2023</p>
+        <p>
+          One‑line abstract or key takeaway. <a href="#">[PDF]</a>
+        </p>
+      </section>
 
-    <h3><a href="https://github.com/your-handle/project-two">Project Two</a></h3>
-    <p class="not-prose text-sm text-gray-500">2024 · Next.js, Typescript</p>
-    <p>Concise overview of what makes this project noteworthy.</p>
-
-    <hr />
-
-    <!-- Publications Section (optional) -->
-    <h2 id="publications">Publications</h2>
-
-    <h3><a href="#">Title of Article or Paper</a></h3>
-    <p class="not-prose text-sm text-gray-500">Conference / Journal · 2023</p>
-    <p>One‑line abstract or key takeaway. <a href="#">[PDF]</a></p>
-
-    <hr />
-
-    <!-- Contact -->
-    <h2 id="contact">Contact</h2>
-    <p>Feel free to reach out for collaborations, speaking opportunities, or just to say hi!</p>
-    <ul>
-      <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
-      <li>GitHub: <a href="https://github.com/your-handle">@your-handle</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/your-handle/">your-handle</a></li>
-    </ul>
-  </main>
+      <!-- Contact -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out for collaborations, speaking opportunities, or just to say hi!</p>
+        <ul>
+          <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
+          <li>GitHub: <a href="https://github.com/your-handle">@your-handle</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/your-handle/">your-handle</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
 
   <footer class="py-8 border-t text-center text-xs text-gray-500 dark:text-gray-400">
     © 2025 Your Name

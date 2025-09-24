@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Hyde‑like Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {font-family:'Inter',system-ui,sans-serif;}
+    /* Simple prose spacing */
+    .prose p {margin:1rem 0;}
+    /* Scroll progress bar */
+    #progressBar {position:fixed;top:0;left:0;height:4px;background:#6366f1;width:0%;z-index:50;}
+  </style>
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <div id="progressBar"></div>
+
+  <!-- Sticky navigation -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <a href="#" class="text-xl font-bold tracking-tight">MyBlog</a>
+      <nav class="hidden md:flex space-x-6 text-sm">
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#posts" class="hover:underline">Posts</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+        <button id="themeToggle" class="ml-4" aria-label="Toggle dark mode">
+          <!-- Sun icon (visible when dark) -->
+          <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414"/>
+          </svg>
+          <!-- Moon icon (visible when light) -->
+          <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+          </svg>
+        </button>
+      </nav>
+      <button id="menuBtn" class="md:hidden" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <div id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-900 border-b">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#posts" class="hover:underline">Posts</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Hero section -->
+  <section class="bg-gray-100 dark:bg-gray-800 py-20">
+    <div class="max-w-2xl mx-auto text-center">
+      <h1 class="text-5xl font-bold mb-4 leading-tight">Thoughts, stories<br class="hidden sm:block"> and ideas.</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300">A minimalist, reader‑friendly blog theme inspired by Hydejack.</p>
+    </div>
+  </section>
+
+  <!-- Content & sidebar wrapper -->
+  <div class="max-w-6xl mx-auto px-4 lg:flex lg:space-x-12 mt-16">
+    <!-- Sidebar (large screens) -->
+    <aside class="hidden lg:block lg:w-64 flex-shrink-0">
+      <div class="sticky top-24">
+        <img src="https://placehold.co/256x256" alt="Avatar" class="rounded-full w-40 h-40 mx-auto mb-4">
+        <h2 class="text-center text-xl font-semibold mb-2">Your Name</h2>
+        <p class="text-center text-gray-500 dark:text-gray-400 mb-6">Short bio goes here. Keep it under ~3 sentences for best results.</p>
+        <nav class="flex flex-col space-y-2 text-sm">
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#posts" class="hover:underline">Posts</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+          <a href="https://github.com/your-handle" class="hover:underline">GitHub</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main id="posts" class="flex-1">
+      <!-- Example post card -->
+      <article class="mb-16">
+        <a href="posts/first-post.html" class="block group">
+          <h2 class="text-3xl font-semibold mb-2 group-hover:underline">My First Post</h2>
+          <p class="text-gray-500 text-sm mb-4">Sep 23, 2025 · 5 min read</p>
+          <p class="text-gray-700 dark:text-gray-300">A concise excerpt that teases the main points of your article and invites readers to continue reading.</p>
+        </a>
+      </article>
+
+      <article class="mb-16">
+        <a href="posts/another-post.html" class="block group">
+          <h2 class="text-3xl font-semibold mb-2 group-hover:underline">Another Post with a Longer Title</h2>
+          <p class="text-gray-500 text-sm mb-4">Aug 17, 2025 · 7 min read</p>
+          <p class="text-gray-700 dark:text-gray-300">Use post excerpts to provide a brief, compelling summary that drives engagement and improves time‑on‑page.</p>
+        </a>
+      </article>
+
+      <!-- Repeat article blocks as needed -->
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact" class="border-t mt-24 py-12">
+    <div class="max-w-6xl mx-auto px-4 lg:px-0 text-center text-sm text-gray-500 dark:text-gray-400">
+      <p class="mb-4">© 2025 Your Name. All rights reserved.</p>
+      <p>Built with <a href="https://tailwindcss.com" class="underline hover:no-underline">Tailwind CSS</a> & hosted on <a href="https://pages.github.com/" class="underline hover:no-underline">GitHub Pages</a>.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Theme toggle (dark/light)
+    const themeBtn = document.getElementById('themeToggle');
+    const docEl = document.documentElement;
+    const DARK = 'dark';
+    function setTheme(mode) {
+      if (mode === DARK) {
+        docEl.classList.add(DARK);
+        localStorage.setItem('theme', 'dark');
+      } else {
+        docEl.classList.remove(DARK);
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    // Init theme
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setTheme('dark');
+    }
+    themeBtn.addEventListener('click', () => {
+      setTheme(docEl.classList.contains(DARK) ? 'light' : 'dark');
+    });
+
+    // Scroll progress bar
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', () => {
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>

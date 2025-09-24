@@ -10,10 +10,7 @@
   <style>
     body { font-family: "Inter", system-ui, sans-serif; font-size: 18px; }
     .font-display { font-family: "Bebas Neue", cursive; }
-    /* Navy accent */
-    :root {
-      --accent: #1e3a8a; /* Tailwind blue-900 */
-    }
+    :root { --accent: #1e3a8a; }
     a { color: var(--accent); }
     hr { border-color: var(--accent); margin-top: 0; margin-bottom: 0; }
   </style>
@@ -47,7 +44,7 @@
     <main class="flex-1 prose prose-lg dark:prose-invert space-y-20">
       <!-- Hero / Header -->
       <section id="hero" class="lg:mt-24">
-        <h1 class="font-display text-7xl font-extrabold tracking-wide lowercase" style="color: var(--accent);">your name</h1>
+        <h1 class="font-display text-6xl font-extrabold tracking-wide lowercase" style="color: var(--accent);">your name</h1>
         <p class="not-prose text-lg text-gray-600 dark:text-gray-400 mt-2">
           123 Main St · Vancouver, BC · <a href="mailto:you@example.com">you@example.com</a>
         </p>
@@ -60,7 +57,7 @@
 
       <!-- About -->
       <section id="about">
-        <h2 class="" style="color: var(--accent);">About</h2>
+        <h2 class="font-display font-bold text-4xl" style="color: var(--accent);">About</h2>
         <p>
           I enjoy translating complex problems into elegant, human-centered solutions. Over the last five years I've worked across the stack, from information architecture to production deployment.
         </p>
@@ -70,7 +67,7 @@
 
       <!-- Projects -->
       <section id="projects">
-        <h2 style="color: var(--accent);">Projects</h2>
+        <h2 class="font-display font-bold text-4xl" style="color: var(--accent);">Projects</h2>
 
         <h3><a href="https://github.com/your-handle/project-one">Project One</a></h3>
         <p class="not-prose text-sm text-gray-500">2025 · React, Node, Postgres</p>
@@ -89,7 +86,7 @@
 
       <!-- Publications -->
       <section id="publications">
-        <h2 style="color: var(--accent);">Publications</h2>
+        <h2 class="font-display font-bold text-4xl" style="color: var(--accent);">Publications</h2>
         <h3><a href="#">Title of Article or Paper</a></h3>
         <p class="not-prose text-sm text-gray-500">Conference / Journal · 2023</p>
         <p>
@@ -101,7 +98,7 @@
 
       <!-- Contact -->
       <section id="contact">
-        <h2 style="color: var(--accent);">Contact</h2>
+        <h2 class="font-display font-bold text-4xl" style="color: var(--accent);">Contact</h2>
         <p>Feel free to reach out for collaborations, speaking opportunities, or just to say hi!</p>
         <ul>
           <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
